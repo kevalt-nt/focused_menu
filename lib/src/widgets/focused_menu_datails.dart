@@ -42,13 +42,13 @@ class FocusedMenuDetails extends StatelessWidget {
 
     final maxMenuWidth = menuWidth ?? (size.width * 0.70);
     final menuHeight = listHeight < maxMenuHeight ? listHeight : maxMenuHeight;
-    final leftOffset = (childOffset.dx + maxMenuWidth) < size.width
-        ? childOffset.dx
-        : (childOffset.dx - maxMenuWidth + childSize!.width);
-    final topOffset = (childOffset.dy + menuHeight + childSize!.height) <
-            size.height - bottomOffsetHeight!
-        ? childOffset.dy + childSize!.height + menuOffset!
-        : childOffset.dy - menuHeight - menuOffset!;
+    // final leftOffset = (childOffset.dx + maxMenuWidth) < size.width
+    //     ? childOffset.dx
+    //     : (childOffset.dx - maxMenuWidth + childSize!.width);
+    // final topOffset = (childOffset.dy + menuHeight + childSize!.height) <
+    //         size.height - bottomOffsetHeight!
+    //     ? childOffset.dy + childSize!.height + menuOffset!
+    //     : childOffset.dy - menuHeight - menuOffset!;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Container(
@@ -67,9 +67,9 @@ class FocusedMenuDetails extends StatelessWidget {
                         (blurBackgroundColor ?? Colors.black).withOpacity(0.7),
                   ),
                 )),
-            Positioned(
-              top: topOffset,
-              left: leftOffset,
+            Center(
+              //top: topOffset,
+              //left: leftOffset,
               child: TweenAnimationBuilder(
                 duration: Duration(milliseconds: 200),
                 builder: (BuildContext context, dynamic value, Widget? child) {
@@ -117,7 +117,7 @@ class FocusedMenuDetails extends StatelessWidget {
                                       vertical: 8.0, horizontal: 14),
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceAround,
                                     children: <Widget>[
                                       item.title,
                                       if (item.trailing != null) ...[
