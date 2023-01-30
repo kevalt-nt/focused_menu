@@ -94,7 +94,7 @@ class _FocusedMenuHolderState extends State<FocusedMenuHolder> {
     return GestureDetector(
         key: containerKey,
         onTap: () async {
-          widget.onPressed?.call();
+         await widget.onPressed?.call();
           if (widget.openWithTap) {
             await openMenu(context);
           }
